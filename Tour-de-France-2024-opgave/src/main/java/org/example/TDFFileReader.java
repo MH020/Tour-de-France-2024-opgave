@@ -13,5 +13,14 @@ public class TDFFileReader {
     }
     public List<Cyclist> readFile() {
     List<Cyclist> cyclists = new ArrayList<>();
+    while (scanner.hasNextLine()) {
+        String line = scanner.nextLine();
+        String[] parts = line.split(",");
+        String name = parts[0];
+        String team = parts[1];
+        Cyclist cyclist = new Cyclist(name, team);
+        cyclists.add(cyclist);
+    }
+    return cyclists;
     }
 }
