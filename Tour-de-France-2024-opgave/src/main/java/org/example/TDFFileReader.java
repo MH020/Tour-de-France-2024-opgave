@@ -7,9 +7,8 @@ import java.util.Scanner;
 
 public class TDFFileReader {
     private File file;
-    private Scanner scanner; 
+    private Scanner scanner;
     public TDFFileReader(String filename) throws FileNotFoundException {
-
     }
     public List<Cyclist> readFile() {
 
