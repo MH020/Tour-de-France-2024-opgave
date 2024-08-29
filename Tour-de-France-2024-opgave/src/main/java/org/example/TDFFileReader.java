@@ -7,20 +7,34 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TDFFileReader {
-    private File file;
-    private Scanner scanner;
+    File file;
+    Scanner scanner;
+
     public TDFFileReader(String filename) throws FileNotFoundException {
+        file = new File(filename);
+        scanner = new Scanner(file);
     }
     public List<Cyclist> readFile() {
-    List<Cyclist> cyclists = new ArrayList<>();
-    while (scanner.hasNextLine()) {
-        String line = scanner.nextLine();
-        String[] parts = line.split(",");
-        String name = parts[0];
-        String team = parts[1];
-        Cyclist cyclist = new Cyclist(name, team);
-        cyclists.add(cyclist);
-    }
-    return cyclists;
+        List<Cyclist> cyclists = new ArrayList<>();
+
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String [] parts;
+            while(line.endsWith(";")){
+                parts = line.split(";");
+
+            }
+            System.out.println(parts.length);
+            try {
+                String name = parts[1];
+                String team = parts[2];
+                Cyclist cyclist = new Cyclist(name, team);
+                cyclists.add(cyclist);
+            }catch(Exception e){
+                System.out.println(e);
+            }
+
+        }
+        return cyclists;
     }
 }
