@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +12,6 @@ public class TDFFileReader {
     public TDFFileReader(String filename) throws FileNotFoundException {
     }
     public List<Cyclist> readFile() {
-
+    List<Cyclist> cyclists = new ArrayList<>();
     }
 }
