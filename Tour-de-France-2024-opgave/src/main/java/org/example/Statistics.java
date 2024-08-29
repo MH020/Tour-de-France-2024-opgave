@@ -1,17 +1,46 @@
 package org.example;
-import java.util.Set;
-import java.util.Map;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class Statistics {
+    List <Cyclist> cyclists;
 
+    public Statistics() throws FileNotFoundException {
+        TDFFileReader fileReader = new TDFFileReader("tdffinishers2024.csv");
+        cyclists = fileReader.readFile();
+
+    }
+
+    //get hold (uden medlemmer)
     public Set<String> getTeams(){
-        return null;
-    }
-    public Map <String, Set <String>> GetTeamsWithMembers(){
-        return null;
+        Set <String> teamSet = new HashSet<>();
+        for (Cyclist c : cyclists) {
+            teamSet.add(c.getTeam());
+        }
+        return teamSet;
     }
 
+    //get hold og medlemmer
+    public Map <String, Set <String>> GetTeamsWithMembers(){
+        Map <String, Set <String>> teamMap = new HashMap<String, Set <String>>(); //teamMap returneres.
+
+        Set <String> teamSet = getTeams();//keys. Holdnavne.
+
+        for (String t : teamSet){ //for hvert hold
+            Set <String> memberSet = new HashSet<>();//values
+            for (Cyclist c : cyclists){
+                if (c.getTeam().equals(t)){
+                    memberSet.add(c.getName());
+                }
+            }
+        }
+
+        return teamMap;
+    }
+
+    //get medlemmer, for specifikt hold.
     public Set <String> getTeamMembers(String team){
-        return null;
+        Set <String> teamMembers = GetTeamsWithMembers().get(team);
+        return teamMembers;
     }
 }
