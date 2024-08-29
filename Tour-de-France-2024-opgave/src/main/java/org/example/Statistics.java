@@ -1,11 +1,17 @@
 package org.example;
+import java.util.Set;
+import java.util.Map;
 
 public class Statistics {
-    public getTeams(){
+
+    public Set<String> getTeams(){
+        return null;
     }
-    public GetTeamsWithMembers(){
+    public Map <String, Set <String>> GetTeamsWithMembers(){
+        return null;
     }
 
-    public getTeamMember(String team){
+    public Set <String> getTeamMembers(String team){
+        return null;
     }
 }
