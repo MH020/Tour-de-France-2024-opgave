@@ -30,9 +30,10 @@ public class Statistics {
             Set <String> memberSet = new HashSet<>();//values
             for (Cyclist c : cyclists){
                 if (c.getTeam().equals(t)){
-                    memberSet.add(c.getName());
+                    memberSet.add(c.getName()); //hvis cyklistens hold er = t (hold i teamSet) tilføjes til memerSet
                 }
             }
+            teamMap.put(t,memberSet); //tilføje hold og medlemslister til teamMap.
         }
 
         return teamMap;
@@ -40,7 +41,7 @@ public class Statistics {
 
     //get medlemmer, for specifikt hold.
     public Set <String> getTeamMembers(String team){
-        Set <String> teamMembers = GetTeamsWithMembers().get(team);
+        Set <String> teamMembers = GetTeamsWithMembers().get(team); //String team er key til teamswithmembers map.
         return teamMembers;
     }
 }
