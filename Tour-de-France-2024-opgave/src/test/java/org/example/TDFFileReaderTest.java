@@ -17,9 +17,9 @@ class TDFFileReaderTest {
         try {
             TDFFileReader reader = new TDFFileReader("src/main/resources/tdffinishers2024.csv");
             List<Cyclist> cyclists = reader.readFile();
-            //for (Cyclist c : cyclists) {
-                System.out.println(cyclists.get(0));
-            //}
+            for (Cyclist c : cyclists) {
+                System.out.println(c.getName() + " " + c.getTeam());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -19,20 +19,18 @@ public class TDFFileReader {
 
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            String [] parts;
-            while(line.endsWith(";")){
-                parts = line.split(";");
-
+            String[] parts = line.split(";");
+            if (parts.length > 2) {
             }
-            System.out.println(parts.length);
             try {
                 String name = parts[1];
                 String team = parts[2];
                 Cyclist cyclist = new Cyclist(name, team);
                 cyclists.add(cyclist);
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println(e);
             }
+
 
         }
         return cyclists;
