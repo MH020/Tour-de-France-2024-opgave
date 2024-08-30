@@ -26,6 +26,7 @@ public class TDFFileReader {
                     String name = parts[1];
                     String team = parts[2];
                     if (team != null && team.contains("TEAM")) {
+                        team = team.replace("| LEASE A BIKE", "").trim();
                         Cyclist cyclist = new Cyclist(name, team);
                         cyclists.add(cyclist);
                     }
